@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <script>
+        const todos = ["Sleep","Bath","Eat"];
+        let userInput = prompt("What would you like to do? Commands: add,list,delete,quit");
+        while(userInput !== "quit" && userInput !== "q"){
+            if(userInput === 'add'){
+                const newTodo = prompt("What would you like to add?");
+                todos.push(newTodo);
+                console.log(`${newTodo} is added to the list`);
+            }else if(userInput === 'list'){
+                console.log("** THIS IS YOUR TO DOS LIST**");
+                for(let i  = 0; i < todos.length; i++){
+                    console.log(`[${i}] ${todos[i]}`);     
+                }
+            }else if(userInput === "delete"){
+                let todelete = prompt("Enter the number you want to delete");
+                while(!parseInt(todelete) || parseInt(todelete) < 0 || parseInt(todelete) >= todos.length){
+                    todelete = prompt("Dumb! Please input within range only.");
+                }
+                console.log(`${todos[todelete]} is now deleted!`);
+                todos.splice(todelete,1);                    
+                
+            }else{
+                console.log("OOPS wrong command!");
+            }
+            userInput = prompt("What would you like to do? Commands: add,list,delete,quit");
+        }   
+        console.log("Close");     
+    </script>
+</head>
+<body>
+
+</body>
+</html>
